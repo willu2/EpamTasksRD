@@ -45,6 +45,13 @@ public class Student {
     public void setSchoolMarks(Map<String, Integer> schoolMarks) {
         this.schoolMarks = schoolMarks;
     }
+
+    @Override
+    public String toString() {
+        return  "studentId > " + studentId + "\n" +
+                "groupeNumber > " + groupeNumber + "\n" +
+                "faculty > " + faculty;
+    }
 }
 
 

@@ -1,3 +1,4 @@
+import jav.errorexception.TaskExeption;
 import jav.errorexception.datacreator.RandDataCreator;
 
 /**
@@ -12,8 +13,8 @@ public class RdTasks {
 //        TasksCollections tasksCollections = new TasksCollections();
 //        tasksCollections.showTaskResult();
 
-        RandDataCreator randDataCreator = new RandDataCreator();
-        System.out.println(randDataCreator.facultyCreator());
+          TaskExeption taskExeption = new TaskExeption();
+          taskExeption.showResults();
 
     }
 }
