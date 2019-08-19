@@ -14,7 +14,7 @@ public class CreateAllBase {
     RandDataCreator dataCreator;
     ArrayList<Student> studentsBase;
 
-    private int studentsCount = 150;
+    private int studentsCount = 100;
 
     public CreateAllBase() {
         dataCreator = new RandDataCreator();
@@ -67,7 +67,7 @@ public class CreateAllBase {
         }
     }
 
-    public void showStudentsByGroupe() throws AbsenceStdentExeption {
+    public void showStudentsByGroupe() {
         int groupeNumber = dataCreator.groupeNumberCreator();
         for(Student student : getStudentsBase()){
             try {
@@ -75,18 +75,22 @@ public class CreateAllBase {
             } catch (WrongMarkExeption ex) {
                 System.out.println(ex.getMessage());
             }
-            if(student.getGroupeNumber() == groupeNumber){
-            System.out.println(" ***************** ");
-            System.out.println("Student ID   >> " + student.getStudentId());
-            System.out.println("Faculty      >> " + student.getFaculty());
-            System.out.println("GroupeNumber >> " + student.getGroupeNumber());
+            try {
+                if(student.getGroupeNumber() == groupeNumber){
+                System.out.println(" ***************** ");
+                System.out.println("Student ID   >> " + student.getStudentId());
+                System.out.println("Faculty      >> " + student.getFaculty());
+                System.out.println("GroupeNumber >> " + student.getGroupeNumber());
 
-            for (String key : student.getSchoolMarks().keySet()) {
-                System.out.print("Subject  >> " + key);
-                System.out.print("  -----  ");
-                System.out.println(student.getSchoolMarks().get(key));
-            }
-            System.out.println(" ***************** ");
+                for (String key : student.getSchoolMarks().keySet()) {
+                    System.out.print("Subject  >> " + key);
+                    System.out.print("  -----  ");
+                    System.out.println(student.getSchoolMarks().get(key));
+                }
+                System.out.println(" ***************** ");
+                }
+            } catch (AbsenceStdentExeption ex) {
+                System.out.println(ex.getMessage());
             }
         }
     }
@@ -99,16 +103,47 @@ public class CreateAllBase {
             System.out.println("Faculty      >> " + student.getFaculty());
             try {
                 System.out.println("GroupeNumber >> " + student.getGroupeNumber());
+                for (String key : student.getSchoolMarks().keySet()) {
+                    middleMark += student.getSchoolMarks().get(key);
+                }
+                System.out.println("MiddleMark >> " + middleMark/student.getSchoolMarks().size());
+                System.out.println(" ***************** ");
             } catch (AbsenceStdentExeption e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
+            } catch (ArithmeticException ex){
+                System.out.println(ex.getMessage());
             }
-
-            for (String key : student.getSchoolMarks().keySet()) {
-                middleMark += student.getSchoolMarks().get(key);
-            }
-            System.out.println("MiddleMark >> " + middleMark/student.getSchoolMarks().size());
-            System.out.println(" ***************** ");
         }
+    }
+
+    public void showMiddleMarkGroupe() {
+        String randFaculty = dataCreator.facultyCreator();
+        String subject = dataCreator.subjectCreator();
+        int randGroupe = dataCreator.groupeNumberCreator();
+        int middleMark = 0;
+        int count = 0;
+
+        for(Student student : getStudentsBase()){
+            if(student.getFaculty().equals(randFaculty)){
+                if(getStudentSubject(student).equals(subject)){
+                    try {
+                        if(student.getGroupeNumber() == randGroupe){
+                            System.out.println(" ------------------------ ");
+                            System.out.println("Student ID   >> " + student.getStudentId());
+                            System.out.println("Faculty      >> " + student.getFaculty());
+
+                            middleMark += student.getSchoolMarks().get(subject);
+                            count++;
+                        }
+                    } catch (AbsenceStdentExeption ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            }
+        }
+        System.out.println("MiddleMark >> " + middleMark/count);
+        System.out.println(" ***************** ");
+
     }
 
     public void checkMarksStudent(Student student) throws WrongMarkExeption {
@@ -117,6 +152,14 @@ public class CreateAllBase {
                     throw new WrongMarkExeption("Mark must be in [1-10]");
                 }
             }
+    }
+
+    public String getStudentSubject(Student student) {
+        String subject = "";
+        for (String key : student.getSchoolMarks().keySet()) {
+            subject = key;
+        }
+        return subject;
     }
 
     public ArrayList<Student> getStudentsBase() {

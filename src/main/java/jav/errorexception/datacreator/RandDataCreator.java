@@ -8,7 +8,7 @@ public class RandDataCreator {
 
     private String[] facultys = {"Geographical", "Historical", "Mathematical",
                                  "Information Technology", "Computer Science", "Physical"};
-    private String[] subject = {"QQQQQQQQ", "EEEEEEEEE", "KKKKKKKKK", "DDDDDDDD", "MMMMMMMM", "VVVVVVVV", "ZZZZZZZZ",
+    private String[] subject = {"QQQQQQQQ", "EEEEEEEEE", "KKKKKKKKK", "DDDDDDDD",
                                 "IIIIIIII", "YYYYYYYY", "BBBBBBBB", "RRRRRRRRRR"};
 
     public int idCreator(){
@@ -18,7 +18,7 @@ public class RandDataCreator {
     }
 
     public int groupeNumberCreator(){
-        int max = 14;
+        int max = 11;
         int min = 0;
         return random.nextInt((max - min) + 0) + min;
     }
