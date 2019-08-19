@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class TasksCollections {
+    String localPath = "data/";
 
     public void showTaskResult() {
 
@@ -26,7 +27,7 @@ public class TasksCollections {
     // 1. Load strings into the list from file and write it reverse
     public void reverseStringInFile() {
 
-        String filePath = "rev.txt";
+        String filePath = localPath + "rev.txt";
         LinkedList<String> textReaderList = new LinkedList<>();
         Scanner sc = null;
 
@@ -45,7 +46,7 @@ public class TasksCollections {
         ListIterator li = textReaderList.listIterator(textReaderList.size());
 
         try{
-            BufferedWriter bw = new BufferedWriter (new FileWriter ("rev.txt"));
+            BufferedWriter bw = new BufferedWriter (new FileWriter (localPath + "rev.txt"));
                   while(li.hasPrevious()) {
                         bw.write (li.previous() + "\n");
                         System.out.println(li.previous());
@@ -138,7 +139,7 @@ public class TasksCollections {
     public void printStringsFromFile() {
 
         List<String> list = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("task10.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(localPath + "task10.txt"))) {
 
             String line;
             while ((line = reader.readLine()) != null) {
@@ -182,7 +183,7 @@ public class TasksCollections {
     public void findDifferenceWords() {
 
         List<String> list = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("task10.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(localPath + "task10.txt"))) {
 
             String line;
             while ((line = reader.readLine()) != null) {
