@@ -36,8 +36,4 @@ public class RandDataCreator {
     public String subjectCreator(){
         return String.valueOf(subject[random.nextInt(subject.length-1)]);
     }
-
-
-
-
 }
