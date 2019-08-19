@@ -8,6 +8,8 @@ public class TaskExeption {
 
         CreateAllBase allBase  = new CreateAllBase();
         allBase.showAllStudents();
+       // allBase.showStudentsByGroupe();
+       // allBase.showMiddleMarkStuden();
 
     }
 

@@ -1,5 +1,7 @@
 package jav.errorexception.entity;
 
+import jav.errorexception.exeptions.AbsenceStdentExeption;
+
 import java.util.Map;
 
 public class Student {
@@ -22,7 +24,10 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public int getGroupeNumber() {
+    public int getGroupeNumber()throws AbsenceStdentExeption {
+        if (groupeNumber == 0 ) {
+            throw new AbsenceStdentExeption("Student hasn't groupe ");
+        }
         return groupeNumber;
     }
 
