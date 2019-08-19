@@ -24,9 +24,9 @@ public class RandDataCreator {
     }
 
     public int marksCreator(){
-        int max = 45;
-        int min = 15;
-        return random.nextInt((max - min) + 1) + min;
+        int max = 10;
+        int min = 0;
+        return random.nextInt((max - min) + 0) + min;
     }
 
     public String facultyCreator(){

@@ -1,6 +1,7 @@
 package jav.errorexception.entity;
 
 import jav.errorexception.exeptions.AbsenceStdentExeption;
+import jav.errorexception.exeptions.WrongMarkExeption;
 
 import java.util.Map;
 
@@ -43,7 +44,7 @@ public class Student {
         this.faculty = faculty;
     }
 
-    public Map<String, Integer> getSchoolMarks() {
+    public Map<String, Integer> getSchoolMarks()  {
         return schoolMarks;
     }
 
