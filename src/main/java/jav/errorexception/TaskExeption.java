@@ -1,18 +1,12 @@
 package jav.errorexception;
 
-import jav.errorexception.dataloader.CreateAllBase;
+import jav.errorexception.menu.ShowMenu;
 
 public class TaskExeption {
 
     public void showResults(){
 
-        CreateAllBase allBase  = new CreateAllBase();
-        allBase.showAllStudents();
-        allBase.showStudentsByGroupe();
-        allBase.showMiddleMarkStuden();
-       // allBase.showMiddleMarkGroupe();
-
+        ShowMenu showMenu = new ShowMenu();
+        showMenu.show();
     }
-
-
 }

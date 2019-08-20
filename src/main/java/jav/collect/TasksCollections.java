@@ -32,7 +32,7 @@ public class TasksCollections {
         Scanner sc = null;
 
         try {
-            sc = new Scanner(new File(filePath));
+            sc = new Scanner(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -40,21 +40,23 @@ public class TasksCollections {
         //write to list
         while (sc.hasNextLine()) {
             textReaderList.add(sc.nextLine());
+            System.out.println(textReaderList);
         }
 
         //write new reverse text
         ListIterator li = textReaderList.listIterator(textReaderList.size());
 
-        try{
-            BufferedWriter bw = new BufferedWriter (new FileWriter (localPath + "rev.txt"));
-                  while(li.hasPrevious()) {
-                        bw.write (li.previous() + "\n");
-                        System.out.println(li.previous());
-                  }
-              bw.close ();
-              } catch (IOException e) {
+
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(localPath + "rev.txt"));
+            while (li.hasPrevious()) {
+                bw.write((String) li.previous());
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
                   e.printStackTrace ();
-          }
+        }
     }
 
     // 2. Enter number, load digits in to the stack. Print number with reverse digits

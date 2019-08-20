@@ -117,33 +117,35 @@ public class CreateAllBase {
     }
 
     public void showMiddleMarkGroupe() {
-        String randFaculty = dataCreator.facultyCreator();
-        String subject = dataCreator.subjectCreator();
+        String randFaculty = "Mathematical";
+        String subject = "DDDDDDDD";
         int randGroupe = dataCreator.groupeNumberCreator();
         int middleMark = 0;
         int count = 0;
 
-        for(Student student : getStudentsBase()){
-            if(student.getFaculty().equals(randFaculty)){
-                if(getStudentSubject(student).equals(subject)){
-                    try {
-                        if(student.getGroupeNumber() == randGroupe){
-                            System.out.println(" ------------------------ ");
-                            System.out.println("Student ID   >> " + student.getStudentId());
-                            System.out.println("Faculty      >> " + student.getFaculty());
+        try{
+            for(Student student : getStudentsBase()){
+                if(student.getFaculty().equals(randFaculty)){
+                    if(getStudentSubject(student).equals(subject)){
+                        try {
+                            if(student.getGroupeNumber() == randGroupe){
+                                System.out.println(" ------------------------ ");
+                                System.out.println("Faculty      >> " + student.getFaculty());
 
-                            middleMark += student.getSchoolMarks().get(subject);
-                            count++;
+                                middleMark += student.getSchoolMarks().get(subject);
+                                count++;
+                            }
+                        } catch (AbsenceStdentExeption ex) {
+                            System.out.println(ex.getMessage());
                         }
-                    } catch (AbsenceStdentExeption ex) {
-                        System.out.println(ex.getMessage());
                     }
                 }
             }
-        }
         System.out.println("MiddleMark >> " + middleMark/count);
         System.out.println(" ***************** ");
-
+    } catch (ArithmeticException ex){
+        System.out.println(ex.getMessage());
+    }
     }
 
     public void checkMarksStudent(Student student) throws WrongMarkExeption {
