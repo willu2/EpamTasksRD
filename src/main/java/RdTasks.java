@@ -1,6 +1,7 @@
 import jav.collect.TasksCollections;
 import jav.errorexception.TaskExeption;
 import jav.errorexception.datacreator.RandDataCreator;
+import jav.strtask.Vowels;
 import jav.threadsplane.PlaneProducer;
 import jav.threadsplane.Strip;
 
@@ -24,8 +25,10 @@ public class RdTasks {
 
         BlockingQueue<Integer> queue = new LinkedBlockingQueue<Integer>(5);
         new Thread(new PlaneProducer(queue)).start();
-      //  new Thread(new Strip(queue)).start();
+        new Thread(new Strip(queue)).start();
 
+        Vowels vowels = new Vowels();
+        vowels.printSortVowels();
     }
 }
 
