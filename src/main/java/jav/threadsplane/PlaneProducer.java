@@ -17,7 +17,10 @@ public class PlaneProducer implements Runnable {
     }
 
     private void process() throws InterruptedException {
+int $1234 = (byte)7;
+int[] nn = {};
 
+        int[] []x[] = {};
         //Put 10 planes into Queue
         for (int i = 0; i < 10; i++) {
             System.out.println("The plane began to enter the strip : " + i);
@@ -30,5 +33,8 @@ public class PlaneProducer implements Runnable {
 
     public PlaneProducer(BlockingQueue<Integer> queue) {
         this.queue = queue;
+
+
     }
 }
+

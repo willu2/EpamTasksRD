@@ -92,27 +92,6 @@ public class TasksCollections {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*private List<File> dir = new ArrayList<File>();
-        public List<String> dirListFromFilePath(String path) {
-            File myDir = new File(path);
-            dir = list(myDir);
-            List<String> stringList = new ArrayList<>();
-            dir.forEach(file -> {
-                stringList.add(file.getPath());
-            });
-            return stringList;
-        }
-
-        private List<File> list(File file) {
-            File[] currentDir = file.listFiles();
-            for (int i = 0; i < currentDir.length; i++) {
-                if (currentDir[i].isDirectory()) {
-                    dir.add(currentDir[i]);
-                    list(currentDir[i]);
-                }
-            }
-            return dir;
-        }*/
     }
 
     // 4. Sort song lines with list
