@@ -60,7 +60,7 @@ public class TasksCollections {
     }
 
     // 2. Enter number, load digits in to the stack. Print number with reverse digits
-    private void reverceStack(int number) {
+    public int reverceStack(int number) {
         Stack stack = new Stack();
 
         while (number > 0) {
@@ -77,6 +77,7 @@ public class TasksCollections {
             i = i * 10;
         }
         System.out.print(reverse);
+        return reverse;
     }
 
     //3.   Create list with directories.
